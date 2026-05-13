@@ -3,40 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0C">
   <meta name="description" content="KERN. La tua musica, dentro. Il primo speaker lifestyle con memoria interna integrata.">
   <meta property="og:title" content="KERN — La tua musica, dentro.">
   <meta property="og:description" content="KERN porta le tue playlist dentro lo speaker. 64GB, 24h di autonomia, IP67. Smetti di dipendere dal telefono.">
   <title>KERN — La tua musica, dentro.</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
-  <!-- Custom cursor (desktop only) -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
+  <a class="skip-link" href="#top">Salta al contenuto principale</a>
 
-  <!-- Page progress bar -->
-  <div class="progress-bar" id="progressBar"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
-  <!-- Navigation -->
   <header class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#top" class="nav__logo" data-magnetic>KERN<span>.</span></a>
+      <a href="#top" class="nav__logo" data-magnetic aria-label="KERN — torna all'inizio della pagina">KERN<span aria-hidden="true">.</span></a>
 
-      <!-- Hamburger mobile -->
-      <button class="nav__burger" id="navBurger" aria-label="Menu">
+      <button class="nav__burger" id="navBurger"
+              aria-label="Apri menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="nav__links" id="navLinks">
+      <nav class="nav__links" id="navLinks" aria-label="Menu principale">
         <a href="#feature" class="nav__link">Il Perché</a>
         <a href="#design" class="nav__link">Design</a>
         <a href="#colors" class="nav__link">Finiture</a>
@@ -44,8 +39,8 @@
       </nav>
 
       <div class="nav__cta">
-        <span class="nav__price">&euro;299</span>
-        <a href="#buy" class="btn btn--primary btn--small" data-magnetic>Acquista</a>
+        <span class="nav__price" aria-hidden="true">&euro;299</span>
+        <a href="#buy" class="btn btn--primary btn--small" data-magnetic aria-label="Acquista KERN a €299">Acquista</a>
       </div>
     </div>
   </header>
@@ -53,25 +48,25 @@
   <main id="top">
 
     <!-- ==================== HERO ==================== -->
-    <section class="hero">
-      <div class="hero__bg" data-speed="0.4">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" data-speed="0.4" aria-hidden="true">
         <picture>
           <source media="(max-width: 640px)"  srcset="./assets/img/hero-image-cassa-s-640x360.webp"  type="image/webp">
           <source media="(max-width: 960px)"  srcset="./assets/img/hero-image-cassa-m-960x540.webp"  type="image/webp">
           <source media="(max-width: 1280px)" srcset="./assets/img/hero-image-cassa-l-1280x720.webp" type="image/webp">
-          <img src="./assets/img/hero-image-cassa-xl.webp" alt="Speaker KERN — vista frontale" class="hero__img" fetchpriority="high">
+          <img src="./assets/img/hero-image-cassa-xl.webp" alt="" class="hero__img" fetchpriority="high">
         </picture>
         <div class="hero__overlay"></div>
         <div class="hero__grain"></div>
       </div>
 
       <div class="hero__content container">
-        <div class="hero__badge" data-reveal>
-          <span class="hero__badge-dot"></span>
+        <p class="hero__badge" data-reveal>
+          <span class="hero__badge-dot" aria-hidden="true"></span>
           La tua musica non ha bisogno del tuo telefono
-        </div>
+        </p>
 
-        <h1 class="hero__title">
+        <h1 class="hero__title" id="hero-title">
           <span class="word" data-reveal-word data-delay="0.1">La tua</span>
           <span class="word" data-reveal-word data-delay="0.2">musica,</span>
           <br>
@@ -86,27 +81,25 @@
         <div class="hero__actions" data-reveal data-delay="0.8">
           <a href="#buy" class="btn btn--primary btn--large" data-magnetic>
             Scopri KERN
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false">
               <path d="M5 12h14M13 6l6 6-6 6"/>
             </svg>
           </a>
           <div class="hero__assurance">
-            <svg class="hero__shield" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="hero__shield" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
               <path d="M12 2L4 6v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V6l-8-4z"/>
               <path d="M9 12l2 2 4-4"/>
             </svg>
             <span>Garanzia 2 anni<br>Spedizione gratuita</span>
           </div>
         </div>
-
-        
       </div>
     </section>
 
     <!-- ==================== PRESS STRIP ==================== -->
-    <section class="press">
+    <section class="press" aria-label="Citata dalla stampa">
       <p class="press__label">Ne parlano</p>
-      <div class="press__marquee">
+      <div class="press__marquee" aria-hidden="true">
         <div class="press__track">
           <span class="press__logo press__logo--serif">WIRED</span>
           <span class="press__logo press__logo--bold">Esquire</span>
@@ -114,30 +107,19 @@
           <span class="press__logo press__logo--mono">GQ</span>
           <span class="press__logo press__logo--serif">DOMUS</span>
           <span class="press__logo press__logo--bold">ICON</span>
-          <span class="press__logo press__logo--serif" aria-hidden="true">WIRED</span>
-          <span class="press__logo press__logo--bold" aria-hidden="true">Esquire</span>
-          <span class="press__logo press__logo--italic" aria-hidden="true">Monocle</span>
-          <span class="press__logo press__logo--mono" aria-hidden="true">GQ</span>
-          <span class="press__logo press__logo--serif" aria-hidden="true">DOMUS</span>
-          <span class="press__logo press__logo--bold" aria-hidden="true">ICON</span>
-          <span class="press__logo press__logo--serif" aria-hidden="true">WIRED</span>
-          <span class="press__logo press__logo--bold" aria-hidden="true">Esquire</span>
-          <span class="press__logo press__logo--italic" aria-hidden="true">Monocle</span>
-          <span class="press__logo press__logo--mono" aria-hidden="true">GQ</span>
-          <span class="press__logo press__logo--serif" aria-hidden="true">DOMUS</span>
-          <span class="press__logo press__logo--bold" aria-hidden="true">ICON</span>
-          <span class="press__logo press__logo--serif" aria-hidden="true">WIRED</span>
-          <span class="press__logo press__logo--bold" aria-hidden="true">Esquire</span>
-          <span class="press__logo press__logo--italic" aria-hidden="true">Monocle</span>
-          <span class="press__logo press__logo--mono" aria-hidden="true">GQ</span>
-          <span class="press__logo press__logo--serif" aria-hidden="true">DOMUS</span>
-          <span class="press__logo press__logo--bold" aria-hidden="true">ICON</span>
+          <span class="press__logo press__logo--serif">WIRED</span>
+          <span class="press__logo press__logo--bold">Esquire</span>
+          <span class="press__logo press__logo--italic">Monocle</span>
+          <span class="press__logo press__logo--mono">GQ</span>
+          <span class="press__logo press__logo--serif">DOMUS</span>
+          <span class="press__logo press__logo--bold">ICON</span>
         </div>
       </div>
+      <p class="visually-hidden">WIRED, Esquire, Monocle, GQ, DOMUS, ICON</p>
     </section>
 
     <!-- ==================== KILLER FEATURE ==================== -->
-    <section class="feature" id="feature">
+    <section class="feature" id="feature" aria-labelledby="feature-title">
       <div class="container feature__grid">
         <div class="feature__visual" data-reveal-left>
           <div class="feature__image-wrap" data-speed="0.15">
@@ -145,10 +127,10 @@
               <source media="(max-width: 640px)" srcset="./assets/img/cassa-features-640x480-s.webp"   type="image/webp">
               <source media="(max-width: 800px)" srcset="./assets/img/cassa-features-800x600-m.webp"   type="image/webp">
               <source media="(max-width: 960px)" srcset="./assets/img/cassa-features-960x720-l.webp"   type="image/webp">
-              <img src="./assets/img/cassa-features-1200x900-xl.webp" alt="KERN sul tavolo, senza telefono in scena" loading="lazy">
+              <img src="./assets/img/cassa-features-1200x900-xl.webp" alt="Speaker KERN posizionato su un tavolo, senza smartphone in scena" loading="lazy">
             </picture>
           </div>
-          <div class="feature__tag" data-speed="-0.1">
+          <div class="feature__tag" data-speed="-0.1" aria-hidden="true">
             <span>Senza notifiche</span>
             <span>Senza Bluetooth</span>
             <span>Senza telefono</span>
@@ -157,7 +139,7 @@
 
         <div class="feature__copy" data-reveal-right>
           <span class="eyebrow">Il vero perché</span>
-          <h2 class="h2">Non è uno speaker.<br><span class="text-accent">È una scelta.</span></h2>
+          <h2 class="h2" id="feature-title">Non è uno speaker.<br><span class="text-accent">È una scelta.</span></h2>
           <p class="lede">
             Ogni volta che apri Spotify apri anche tutto il resto. Le notifiche, i messaggi, le distrazioni.
             KERN nasce da un'idea semplice: la musica dovrebbe vivere nello speaker, non nel telefono.
@@ -165,8 +147,8 @@
           </p>
           <ul class="feature__list">
             <li class="feature__item">
-              <div class="feature__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false">
                   <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0119 12.55"/>
                   <path d="M5 12.55a10.94 10.94 0 015.17-2.39M10.71 5.05A16 16 0 0122.58 9"/>
                   <path d="M1.42 9a15.91 15.91 0 014.7-2.88M8.53 16.11a6 6 0 016.95 0M12 20h.01"/>
@@ -178,8 +160,8 @@
               </div>
             </li>
             <li class="feature__item">
-              <div class="feature__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false">
                   <rect x="2" y="2" width="20" height="8" rx="2"/>
                   <rect x="2" y="14" width="20" height="8" rx="2"/>
                   <line x1="6" y1="6" x2="6.01" y2="6"/>
@@ -197,40 +179,40 @@
     </section>
 
     <!-- ==================== STATS COUNTERS ==================== -->
-    <section class="stats">
+    <section class="stats" aria-label="Specifiche tecniche">
       <div class="container stats__grid">
-        <div class="stat" data-reveal>
-          <div class="stat__number" data-counter="64" data-suffix="GB">0</div>
-          <div class="stat__label">Memoria interna</div>
+        <div class="stat" role="img" aria-label="64 gigabyte di memoria interna" data-reveal>
+          <div class="stat__number" data-counter="64" data-suffix="GB" aria-hidden="true">0</div>
+          <div class="stat__label" aria-hidden="true">Memoria interna</div>
         </div>
-        <div class="stat" data-reveal data-delay="0.1">
-          <div class="stat__number" data-counter="24" data-suffix="h">0</div>
-          <div class="stat__label">Autonomia</div>
+        <div class="stat" role="img" aria-label="24 ore di autonomia" data-reveal data-delay="0.1">
+          <div class="stat__number" data-counter="24" data-suffix="h" aria-hidden="true">0</div>
+          <div class="stat__label" aria-hidden="true">Autonomia</div>
         </div>
-        <div class="stat" data-reveal data-delay="0.2">
-          <div class="stat__number" data-counter="15000" data-suffix="">0</div>
-          <div class="stat__label">Brani salvabili</div>
+        <div class="stat" role="img" aria-label="Oltre 15.000 brani salvabili" data-reveal data-delay="0.2">
+          <div class="stat__number" data-counter="15000" data-suffix="" aria-hidden="true">0</div>
+          <div class="stat__label" aria-hidden="true">Brani salvabili</div>
         </div>
-        <div class="stat" data-reveal data-delay="0.3">
-          <div class="stat__number" data-counter="360" data-suffix="&deg;">0</div>
-          <div class="stat__label">Diffusione audio</div>
+        <div class="stat" role="img" aria-label="360 gradi di diffusione audio" data-reveal data-delay="0.3">
+          <div class="stat__number" data-counter="360" data-suffix="&deg;" aria-hidden="true">0</div>
+          <div class="stat__label" aria-hidden="true">Diffusione audio</div>
         </div>
       </div>
     </section>
 
     <!-- ==================== DESIGN / DETAIL ==================== -->
-    <section class="design" id="design">
+    <section class="design" id="design" aria-labelledby="design-title">
       <div class="container">
         <div class="design__intro" data-reveal>
           <span class="eyebrow">Costruito per durare</span>
-          <h2 class="h2">Ogni dettaglio<br>ha un motivo.</h2>
+          <h2 class="h2" id="design-title">Ogni dettaglio<br>ha un motivo.</h2>
           <p class="lede">Alluminio anodizzato, tessuto acustico premium, ghiera del volume con feedback fisico preciso. Non è estetica — è sostanza.</p>
         </div>
 
         <div class="design__grid">
           <div class="card card--feature" data-reveal-left>
-            <div class="card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false">
                 <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
               </svg>
             </div>
@@ -242,14 +224,14 @@
             <picture>
               <source media="(max-width: 480px)" srcset="./assets/img/cassa-dettaglio-480x480-s.webp" type="image/webp">
               <source media="(max-width: 640px)" srcset="./assets/img/cassa-dettaglio-640x640-m.webp" type="image/webp">
-              <img src="./assets/img/cassa-dettaglio-800x800-xl.webp" alt="Dettaglio ghiera volume KERN" loading="lazy">
+              <img src="./assets/img/cassa-dettaglio-800x800-xl.webp" alt="Primo piano della ghiera del volume in alluminio anodizzato di KERN" loading="lazy">
             </picture>
-            <div class="card__caption">Ghiera in alluminio anodizzato</div>
+            <div class="card__caption" aria-hidden="true">Ghiera in alluminio anodizzato</div>
           </div>
 
           <div class="card card--feature" data-reveal-right>
-            <div class="card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false">
                 <rect x="1" y="6" width="18" height="12" rx="2"/>
                 <line x1="23" y1="13" x2="23" y2="11"/>
                 <line x1="6" y1="10" x2="6" y2="14"/>
@@ -265,25 +247,27 @@
     </section>
 
     <!-- ==================== BIG QUOTE ==================== -->
-    <section class="quote">
+    <section class="quote" aria-label="Testimonianza cliente">
       <div class="container">
-        <p class="quote__text">
-          <span class="quote__line" data-reveal-line>&ldquo;Ho messo il telefono in borsa</span>
-          <span class="quote__line" data-reveal-line data-delay="0.12">e per la prima volta ho</span>
-          <span class="quote__line quote__line--accent" data-reveal-line data-delay="0.24">ascoltato davvero la musica.&rdquo;</span>
-        </p>
-        <div class="quote__cite" data-reveal data-delay="0.5">
-          &mdash; Beta tester, Milano
-        </div>
+        <blockquote class="quote__text">
+          <p>
+            <span class="quote__line" data-reveal-line>&ldquo;Ho messo il telefono in borsa</span>
+            <span class="quote__line" data-reveal-line data-delay="0.12">e per la prima volta ho</span>
+            <span class="quote__line quote__line--accent" data-reveal-line data-delay="0.24">ascoltato davvero la musica.&rdquo;</span>
+          </p>
+          <footer class="quote__cite" data-reveal data-delay="0.5">
+            <cite>Beta tester, Milano</cite>
+          </footer>
+        </blockquote>
       </div>
     </section>
 
     <!-- ==================== COLORS ==================== -->
-    <section class="colors" id="colors">
+    <section class="colors" id="colors" aria-labelledby="colors-title">
       <div class="container">
         <div class="colors__intro" data-reveal>
           <span class="eyebrow">Tre finiture</span>
-          <h2 class="h2">Scegli il tuo KERN.</h2>
+          <h2 class="h2" id="colors-title">Scegli il tuo KERN.</h2>
           <p class="lede">Alluminio anodizzato opaco e tessuto acustico premium. Tre colorazioni, una sola identità.</p>
         </div>
 
@@ -292,20 +276,20 @@
             <source media="(max-width: 640px)"  srcset="./assets/img/cassa-color-change-640x360-s.webp"   type="image/webp">
             <source media="(max-width: 960px)"  srcset="./assets/img/cassa-color-change-960x540-m.webp"   type="image/webp">
             <source media="(max-width: 1280px)" srcset="./assets/img/cassa-color-change-1280x720-l.webp"  type="image/webp">
-            <img src="./assets/img/cassa-color-change-2100x900-xl.webp" alt="Le tre finiture di KERN" loading="lazy" data-speed="0.08">
+            <img src="./assets/img/cassa-color-change-2100x900-xl.webp" alt="Le tre finiture disponibili di KERN: Midnight nero, Coral arancione e Cream crema" loading="lazy" data-speed="0.08">
           </picture>
         </div>
 
-        <div class="colors__swatches">
-          <button class="swatch" data-swatch="midnight">
+        <div class="colors__swatches" role="group" aria-label="Scegli la finitura">
+          <button class="swatch" data-swatch="midnight" aria-pressed="false">
             <span class="swatch__dot"></span>
             <span class="swatch__name">Midnight</span>
           </button>
-          <button class="swatch swatch--active" data-swatch="coral">
+          <button class="swatch swatch--active" data-swatch="coral" aria-pressed="true">
             <span class="swatch__dot"></span>
             <span class="swatch__name">Coral</span>
           </button>
-          <button class="swatch" data-swatch="cream">
+          <button class="swatch" data-swatch="cream" aria-pressed="false">
             <span class="swatch__dot"></span>
             <span class="swatch__name">Cream</span>
           </button>
@@ -314,30 +298,30 @@
     </section>
 
     <!-- ==================== PRICING / BUY ==================== -->
-    <section class="buy" id="buy">
+    <section class="buy" id="buy" aria-labelledby="buy-title">
       <div class="container">
         <div class="buy__card" data-reveal>
-          <div class="buy__glow"></div>
+          <div class="buy__glow" aria-hidden="true"></div>
           <div class="buy__copy">
-            <h2 class="h2">Smetti di dipendere<br>dal telefono.</h2>
+            <h2 class="h2" id="buy-title">Smetti di dipendere<br>dal telefono.</h2>
             <p class="lede">La tua musica è già dentro.</p>
             <div class="buy__price">
               <span class="buy__amount">&euro;299</span>
               <span class="buy__vat">IVA incl.</span>
             </div>
             <ul class="buy__perks">
-              <li><span class="buy__check">&check;</span> Spedizione gratuita in 24/48h</li>
-              <li><span class="buy__check">&check;</span> 30 giorni per il reso gratuito</li>
-              <li><span class="buy__check">&check;</span> Garanzia italiana 24 mesi</li>
+              <li><span class="buy__check" aria-hidden="true">&check;</span> Spedizione gratuita in 24/48h</li>
+              <li><span class="buy__check" aria-hidden="true">&check;</span> 30 giorni per il reso gratuito</li>
+              <li><span class="buy__check" aria-hidden="true">&check;</span> Garanzia italiana 24 mesi</li>
             </ul>
             <a href="#" class="btn btn--primary btn--large btn--block" data-magnetic>Acquista KERN</a>
           </div>
-          <div class="buy__visual">
+          <div class="buy__visual" aria-hidden="true">
             <picture>
               <source media="(max-width: 640px)"  srcset="./assets/img/hero-image-cassa-s-640x360.webp"  type="image/webp">
               <source media="(max-width: 960px)"  srcset="./assets/img/hero-image-cassa-m-960x540.webp"  type="image/webp">
               <source media="(max-width: 1280px)" srcset="./assets/img/hero-image-cassa-l-1280x720.webp" type="image/webp">
-              <img src="./assets/img/hero-image-cassa-xl.webp" alt="Speaker KERN" loading="lazy" data-speed="0.1">
+              <img src="./assets/img/hero-image-cassa-xl.webp" alt="" loading="lazy" data-speed="0.1">
             </picture>
           </div>
         </div>
@@ -345,35 +329,35 @@
     </section>
 
     <!-- ==================== FAQ ==================== -->
-    <section class="faq" id="faq">
+    <section class="faq" id="faq" aria-labelledby="faq-title">
       <div class="container container--narrow">
-        <h2 class="h2 faq__title" data-reveal>Domande Frequenti</h2>
+        <h2 class="h2 faq__title" id="faq-title" data-reveal>Domande Frequenti</h2>
 
         <div class="accordion">
           <details class="accordion__item" data-reveal>
             <summary class="accordion__head">
               <span>Come trasferisco la musica su KERN?</span>
-              <span class="accordion__icon">+</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
             </summary>
             <div class="accordion__body">
-              Tramite l'app KERN (disponibile per iOS e Android), connetti lo speaker alla rete Wi-Fi di casa. Puoi sincronizzare le tue playlist da Spotify, Apple Music o trasferire direttamente i tuoi file FLAC/WAV. Una volta completata la sincronizzazione, non hai pi&ugrave; bisogno dell'app — n&eacute; del telefono.
+              Tramite l'app KERN (disponibile per iOS e Android), connetti lo speaker alla rete Wi-Fi di casa. Puoi sincronizzare le tue playlist da Spotify, Apple Music o trasferire direttamente i tuoi file FLAC/WAV. Una volta completata la sincronizzazione, non hai più bisogno dell'app — né del telefono.
             </div>
           </details>
 
           <details class="accordion__item" data-reveal>
             <summary class="accordion__head">
               <span>Posso usarlo come un normale speaker Bluetooth?</span>
-              <span class="accordion__icon">+</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
             </summary>
             <div class="accordion__body">
-              S&igrave;. KERN supporta Bluetooth 5.3 con aptX HD. Se un amico vuole farti ascoltare qualcosa dal suo telefono, un tocco sul tasto Bluetooth lo trasforma in speaker tradizionale. La modalit&agrave; standalone resta quella di default — il Bluetooth &egrave; una scelta, non una dipendenza.
+              Sì. KERN supporta Bluetooth 5.3 con aptX HD. Se un amico vuole farti ascoltare qualcosa dal suo telefono, un tocco sul tasto Bluetooth lo trasforma in speaker tradizionale. La modalità standalone resta quella di default — il Bluetooth è una scelta, non una dipendenza.
             </div>
           </details>
 
           <details class="accordion__item" data-reveal>
             <summary class="accordion__head">
               <span>Quante canzoni entrano in 64GB?</span>
-              <span class="accordion__icon">+</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
             </summary>
             <div class="accordion__body">
               Circa 15.000 brani in MP3 a 320kbps, oppure circa 1.500 in formato lossless FLAC o ALAC. Abbastanza per ascoltare musica tutto il giorno, ogni giorno, per oltre un mese senza mai sentire la stessa traccia due volte.
@@ -382,21 +366,21 @@
 
           <details class="accordion__item" data-reveal>
             <summary class="accordion__head">
-              <span>&Egrave; resistente all'acqua e agli urti?</span>
-              <span class="accordion__icon">+</span>
+              <span>È resistente all'acqua e agli urti?</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
             </summary>
             <div class="accordion__body">
-              S&igrave;. KERN &egrave; certificato IP67 — polvere zero, immersione fino a 1 metro per 30 minuti. La struttura in alluminio anodizzato assorbe gli urti quotidiani senza graffiare e senza cedere. Progettato per vivere fuori dal cassetto.
+              Sì. KERN è certificato IP67 — polvere zero, immersione fino a 1 metro per 30 minuti. La struttura in alluminio anodizzato assorbe gli urti quotidiani senza graffiare e senza cedere. Progettato per vivere fuori dal cassetto.
             </div>
           </details>
 
           <details class="accordion__item" data-reveal>
             <summary class="accordion__head">
               <span>Quali formati audio supporta?</span>
-              <span class="accordion__icon">+</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
             </summary>
             <div class="accordion__body">
-              MP3, AAC, FLAC, ALAC, WAV e OGG in riproduzione locale. Via Bluetooth: SBC, AAC e aptX HD. Puoi ascoltare la tua libreria lossless direttamente dalla memoria interna — senza compressione, senza perdita di qualit&agrave;.
+              MP3, AAC, FLAC, ALAC, WAV e OGG in riproduzione locale. Via Bluetooth: SBC, AAC e aptX HD. Puoi ascoltare la tua libreria lossless direttamente dalla memoria interna — senza compressione, senza perdita di qualità.
             </div>
           </details>
         </div>
@@ -404,16 +388,17 @@
     </section>
 
     <!-- ==================== NEWSLETTER ==================== -->
-    <section class="newsletter">
+    <section class="newsletter" aria-labelledby="newsletter-title">
       <div class="container container--narrow">
         <div class="newsletter__inner" data-reveal>
-          <h2 class="h3">Entra in lista. Ottieni il 10% di sconto.</h2>
+          <h2 class="h3" id="newsletter-title">Entra in lista. Ottieni il 10% di sconto.</h2>
           <p>Sei tra i primi a scoprire KERN. Ricevi il codice promozionale e tutte le novità in anteprima.</p>
           <form class="newsletter__form" id="newsletterForm">
-            <input type="email" required placeholder="La tua email..." aria-label="Email">
+            <label for="newsletterEmail" class="visually-hidden">Il tuo indirizzo email</label>
+            <input type="email" id="newsletterEmail" name="email" required placeholder="La tua email..." autocomplete="email">
             <button type="submit" class="btn btn--white">Iscriviti</button>
           </form>
-          <p class="newsletter__success" id="newsletterSuccess">Grazie! Controlla la tua casella di posta.</p>
+          <p class="newsletter__success" id="newsletterSuccess" role="status" aria-live="polite">Grazie! Controlla la tua casella di posta.</p>
         </div>
       </div>
     </section>
@@ -425,10 +410,10 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span class="footer__logo">KERN<span>.</span></span>
+          <span class="footer__logo" aria-hidden="true">KERN<span>.</span></span>
           <p>La tua musica, dentro.<br>Progettato in Italia.<br>Costruito per durare.</p>
         </div>
-        <div>
+        <nav aria-label="Prodotto">
           <h4>Prodotto</h4>
           <ul>
             <li><a href="#">Acquista KERN</a></li>
@@ -436,8 +421,8 @@
             <li><a href="#">L'App iOS / Android</a></li>
             <li><a href="#">Specifiche Tecniche</a></li>
           </ul>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label="Supporto">
           <h4>Supporto</h4>
           <ul>
             <li><a href="#">Centro Assistenza</a></li>
@@ -445,32 +430,29 @@
             <li><a href="#">Resi e Rimborsi</a></li>
             <li><a href="#">Contattaci</a></li>
           </ul>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label="Legale">
           <h4>Legale</h4>
           <ul>
             <li><a href="#">Termini di Servizio</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Cookie Policy</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer__bottom">
         <p>&copy; 2026 KERN Audio. Tutti i diritti riservati.</p>
-        <div class="footer__social">
+        <nav class="footer__social" aria-label="Seguici sui social">
           <a href="#">Instagram</a>
           <a href="#">TikTok</a>
           <a href="#">YouTube</a>
-        </div>
+        </nav>
       </div>
     </div>
   </footer>
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-
-  <!-- Main JS -->
-  <script src="assets/javascritpt/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+  <script src="assets/javascript/main.js" defer></script>
 </body>
 </html>
