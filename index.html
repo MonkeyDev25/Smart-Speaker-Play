@@ -9,8 +9,17 @@
   <meta property="og:description" content="KERN porta le tue playlist dentro lo speaker. 64GB, 24h di autonomia, IP67. Smetti di dipendere dal telefono.">
   <title>KERN — La tua musica, dentro.</title>
 
+  <!-- Preconnect: fonts + CDN scripts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- Preload hero image — LCP critical path -->
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-s-640x360.webp"  media="(max-width: 640px)"                              type="image/webp">
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-m-960x540.webp"  media="(min-width: 641px) and (max-width: 960px)"        type="image/webp">
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-l-1280x720.webp" media="(min-width: 961px) and (max-width: 1280px)"        type="image/webp">
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-xl.webp"         media="(min-width: 1281px)"                               type="image/webp">
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -54,7 +63,7 @@
           <source media="(max-width: 640px)"  srcset="./assets/img/hero-image-cassa-s-640x360.webp"  type="image/webp">
           <source media="(max-width: 960px)"  srcset="./assets/img/hero-image-cassa-m-960x540.webp"  type="image/webp">
           <source media="(max-width: 1280px)" srcset="./assets/img/hero-image-cassa-l-1280x720.webp" type="image/webp">
-          <img src="./assets/img/hero-image-cassa-xl.webp" alt="" class="hero__img" fetchpriority="high">
+          <img src="./assets/img/hero-image-cassa-xl.webp" alt="" class="hero__img" fetchpriority="high" width="1920" height="1080">
         </picture>
         <div class="hero__overlay"></div>
         <div class="hero__grain"></div>
@@ -127,7 +136,7 @@
               <source media="(max-width: 640px)" srcset="./assets/img/cassa-features-640x480-s.webp"   type="image/webp">
               <source media="(max-width: 800px)" srcset="./assets/img/cassa-features-800x600-m.webp"   type="image/webp">
               <source media="(max-width: 960px)" srcset="./assets/img/cassa-features-960x720-l.webp"   type="image/webp">
-              <img src="./assets/img/cassa-features-1200x900-xl.webp" alt="Speaker KERN posizionato su un tavolo, senza smartphone in scena" loading="lazy">
+              <img src="./assets/img/cassa-features-1200x900-xl.webp" alt="Speaker KERN posizionato su un tavolo, senza smartphone in scena" loading="lazy" width="1200" height="900">
             </picture>
           </div>
           <div class="feature__tag" data-speed="-0.1" aria-hidden="true">
@@ -224,7 +233,7 @@
             <picture>
               <source media="(max-width: 480px)" srcset="./assets/img/cassa-dettaglio-480x480-s.webp" type="image/webp">
               <source media="(max-width: 640px)" srcset="./assets/img/cassa-dettaglio-640x640-m.webp" type="image/webp">
-              <img src="./assets/img/cassa-dettaglio-800x800-xl.webp" alt="Primo piano della ghiera del volume in alluminio anodizzato di KERN" loading="lazy">
+              <img src="./assets/img/cassa-dettaglio-800x800-xl.webp" alt="Primo piano della ghiera del volume in alluminio anodizzato di KERN" loading="lazy" width="800" height="800">
             </picture>
             <div class="card__caption" aria-hidden="true">Ghiera in alluminio anodizzato</div>
           </div>
@@ -276,7 +285,7 @@
             <source media="(max-width: 640px)"  srcset="./assets/img/cassa-color-change-640x360-s.webp"   type="image/webp">
             <source media="(max-width: 960px)"  srcset="./assets/img/cassa-color-change-960x540-m.webp"   type="image/webp">
             <source media="(max-width: 1280px)" srcset="./assets/img/cassa-color-change-1280x720-l.webp"  type="image/webp">
-            <img src="./assets/img/cassa-color-change-2100x900-xl.webp" alt="Le tre finiture disponibili di KERN: Midnight nero, Coral arancione e Cream crema" loading="lazy" data-speed="0.08">
+            <img src="./assets/img/cassa-color-change-2100x900-xl.webp" alt="Le tre finiture disponibili di KERN: Midnight nero, Coral arancione e Cream crema" loading="lazy" data-speed="0.08" width="2100" height="900">
           </picture>
         </div>
 
@@ -321,7 +330,7 @@
               <source media="(max-width: 640px)"  srcset="./assets/img/hero-image-cassa-s-640x360.webp"  type="image/webp">
               <source media="(max-width: 960px)"  srcset="./assets/img/hero-image-cassa-m-960x540.webp"  type="image/webp">
               <source media="(max-width: 1280px)" srcset="./assets/img/hero-image-cassa-l-1280x720.webp" type="image/webp">
-              <img src="./assets/img/hero-image-cassa-xl.webp" alt="" loading="lazy" data-speed="0.1">
+              <img src="./assets/img/hero-image-cassa-xl.webp" alt="" loading="lazy" data-speed="0.1" width="1920" height="1080">
             </picture>
           </div>
         </div>
