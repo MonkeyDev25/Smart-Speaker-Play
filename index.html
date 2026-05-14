@@ -52,7 +52,13 @@
     .skip-link:focus{top:0}
     :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
     :focus:not(:focus-visible){outline:none}
-    .gsap-ready .hero__badge,.gsap-ready [data-reveal-word],.gsap-ready .hero__lede,.gsap-ready .hero__actions{opacity:0}
+    .gsap-ready .hero__badge,.gsap-ready .hero__lede,.gsap-ready .hero__actions{opacity:0}
+    .hero__title .word{transform-origin:bottom}
+    @media(prefers-reduced-motion:no-preference){@keyframes heroWordIn{from{opacity:0;transform:perspective(800px) translateY(40px) rotateX(20deg)}to{opacity:1;transform:perspective(800px) translateY(0) rotateX(0deg)}}
+    .hero__title .word{animation:heroWordIn .9s cubic-bezier(.22,1,.36,1) both}
+    .hero__title span:nth-of-type(1){animation-delay:.1s}
+    .hero__title span:nth-of-type(2){animation-delay:.2s}
+    .hero__title span:nth-of-type(3){animation-delay:.32s}}
     .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px}
     @media(min-width:700px){.container{padding:0 32px}}
     .word{display:inline-block}
@@ -78,7 +84,7 @@
     .nav__burger.is-open span:nth-child(2){opacity:0}
     .nav__burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     @media(min-width:880px){.nav__burger{display:none}}
-    .nav__links{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(var(--bg-rgb),.95);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease);z-index:50}
+    .nav__links{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(var(--bg-rgb),.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease);z-index:100}
     .nav__links.is-open{opacity:1;pointer-events:all}
     @media(min-width:880px){.nav__links{position:static;background:none;backdrop-filter:none;flex-direction:row;gap:36px;opacity:1;pointer-events:all}}
     .nav__link{font-size:16px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-soft);position:relative;transition:color .25s var(--ease)}
@@ -146,19 +152,21 @@
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="nav__links" id="navLinks" aria-label="Menu principale">
-        <a href="#feature" class="nav__link">Il Perché</a>
-        <a href="#design" class="nav__link">Design</a>
-        <a href="#colors" class="nav__link">Finiture</a>
-        <a href="#faq" class="nav__link">FAQ</a>
-      </nav>
-
       <div class="nav__cta">
         <span class="nav__price" aria-hidden="true">&euro;299</span>
         <a href="#buy" class="btn btn--primary btn--small" data-magnetic aria-label="Acquista KERN a €299">Acquista</a>
       </div>
     </div>
   </header>
+
+  <!-- Mobile nav overlay — kept outside <header> so Safari backdrop-filter on .nav.is-scrolled
+       does not create a new containing block that clips this position:fixed overlay -->
+  <nav class="nav__links" id="navLinks" aria-label="Menu principale">
+    <a href="#feature" class="nav__link">Il Perché</a>
+    <a href="#design" class="nav__link">Design</a>
+    <a href="#colors" class="nav__link">Finiture</a>
+    <a href="#faq" class="nav__link">FAQ</a>
+  </nav>
 
   <main id="top">
 
