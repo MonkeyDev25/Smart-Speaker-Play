@@ -7,11 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ── 1. Hero Entrance ─────────────────────────────────────────── */
 if (!reducedMotion) {
+  // Elements are already opacity:0 via .gsap-ready CSS class (set before stylesheet loaded).
+  // gsap.set() establishes initial transforms so .to() can animate from the right position.
+  gsap.set(['.hero__badge', '.hero__lede', '.hero__actions'], { y: 30 });
+  gsap.set('[data-reveal-word]', { y: 40, rotateX: 20, transformOrigin: 'bottom' });
+
   gsap.timeline({ defaults: { ease: 'power3.out' } })
-    .from('.hero__badge',       { y: 30, opacity: 0, duration: 0.8 })
-    .from('[data-reveal-word]', { y: 40, rotateX: 20, opacity: 0, duration: 0.9, stagger: 0.06, transformOrigin: 'bottom' }, 0.1)
-    .from('.hero__lede',        { y: 30, opacity: 0, duration: 0.8 }, 0.6)
-    .from('.hero__actions',     { y: 30, opacity: 0, duration: 0.8 }, 0.8);
+    .to('.hero__badge',       { y: 0, opacity: 1, duration: 0.8 })
+    .to('[data-reveal-word]', { y: 0, rotateX: 0, opacity: 1, duration: 0.9, stagger: 0.06 }, 0.1)
+    .to('.hero__lede',        { y: 0, opacity: 1, duration: 0.8 }, 0.6)
+    .to('.hero__actions',     { y: 0, opacity: 1, duration: 0.8 }, 0.8);
 }
 
 

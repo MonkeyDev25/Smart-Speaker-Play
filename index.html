@@ -20,6 +20,14 @@
   <link rel="preload" as="image" href="./assets/img/hero-image-cassa-l-1280x720.webp" media="(min-width: 961px) and (max-width: 1280px)"        type="image/webp">
   <link rel="preload" as="image" href="./assets/img/hero-image-cassa-xl.webp"         media="(min-width: 1281px)"                               type="image/webp">
 
+  <!-- Preload GSAP — start download in parallel with CSS -->
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" crossorigin>
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" crossorigin>
+
+  <!-- FOUC prevention: runs before CSS so hero elements are hidden from first paint;
+       GSAP then animates them in. Skipped when prefers-reduced-motion is set. -->
+  <script>if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('gsap-ready')</script>
+
   <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=optional"
         onload="this.onload=null;this.rel='stylesheet'">
@@ -428,7 +436,7 @@
           <p>La tua musica, dentro.<br>Progettato in Italia.<br>Costruito per durare.</p>
         </div>
         <nav aria-label="Prodotto">
-          <h4>Prodotto</h4>
+          <h3>Prodotto</h3>
           <ul>
             <li><a href="#">Acquista KERN</a></li>
             <li><a href="#">Accessori</a></li>
@@ -437,7 +445,7 @@
           </ul>
         </nav>
         <nav aria-label="Supporto">
-          <h4>Supporto</h4>
+          <h3>Supporto</h3>
           <ul>
             <li><a href="#">Centro Assistenza</a></li>
             <li><a href="#">Manuale d'Uso</a></li>
@@ -446,7 +454,7 @@
           </ul>
         </nav>
         <nav aria-label="Legale">
-          <h4>Legale</h4>
+          <h3>Legale</h3>
           <ul>
             <li><a href="#">Termini di Servizio</a></li>
             <li><a href="#">Privacy Policy</a></li>
