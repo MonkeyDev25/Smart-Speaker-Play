@@ -114,7 +114,6 @@ ul { list-style: none; }
 
 /* FOUC prevention: hero elements hidden before GSAP runs (class set by inline script) */
 .gsap-ready .hero__badge,
-.gsap-ready [data-reveal-word],
 .gsap-ready .hero__lede,
 .gsap-ready .hero__actions { opacity: 0; }
 
@@ -543,6 +542,18 @@ ul { list-style: none; }
 
 .word { display: inline-block; }
 .word--accent { color: var(--accent); font-style: italic; }
+
+.hero__title .word { transform-origin: bottom; }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes heroWordIn {
+    from { opacity: 0; transform: perspective(800px) translateY(40px) rotateX(20deg); }
+    to   { opacity: 1; transform: perspective(800px) translateY(0)     rotateX(0deg); }
+  }
+  .hero__title .word { animation: heroWordIn .9s cubic-bezier(.22,1,.36,1) both; }
+  .hero__title span:nth-of-type(1) { animation-delay: .1s; }
+  .hero__title span:nth-of-type(2) { animation-delay: .2s; }
+  .hero__title span:nth-of-type(3) { animation-delay: .32s; }
+}
 
 .hero__lede {
   font-size: clamp(1rem, 1.6vw, 1.45rem);
