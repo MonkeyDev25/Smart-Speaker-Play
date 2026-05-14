@@ -124,6 +124,15 @@ updateScrollUI();
 /* ── 6. Mobile Nav ───────────────────────────────────────────── */
 const burger   = document.getElementById('navBurger');
 const navLinks = document.getElementById('navLinks');
+const navClose = document.getElementById('navClose');
+
+function closeNav() {
+  burger.classList.remove('is-open');
+  navLinks.classList.remove('is-open');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'Apri menu');
+  document.body.style.overflow = '';
+}
 
 if (burger && navLinks) {
   burger.addEventListener('click', () => {
@@ -134,15 +143,8 @@ if (burger && navLinks) {
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  navLinks.querySelectorAll('.nav__link').forEach(link =>
-    link.addEventListener('click', () => {
-      burger.classList.remove('is-open');
-      navLinks.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Apri menu');
-      document.body.style.overflow = '';
-    })
-  );
+  navClose?.addEventListener('click', closeNav);
+  navLinks.querySelectorAll('.nav__link').forEach(link => link.addEventListener('click', closeNav));
 }
 
 

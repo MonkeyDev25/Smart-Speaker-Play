@@ -322,6 +322,25 @@ ul { list-style: none; }
   pointer-events: all;
 }
 
+.nav__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--fg-soft);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav__close:hover { color: var(--fg); border-color: rgba(255,255,255,0.3); }
+
 @media (min-width: 880px) {
   .nav__links {
     position: static;
