@@ -163,18 +163,21 @@ document.querySelectorAll('a[href^="#"]').forEach(link =>
 /* ── 8. Magnetic Buttons ─────────────────────────────────────── */
 if (!reducedMotion) {
   document.querySelectorAll('[data-magnetic]').forEach(el => {
+    let rect = el.getBoundingClientRect();
+    window.addEventListener('resize', () => { rect = el.getBoundingClientRect(); }, { passive: true });
+
     el.addEventListener('mousemove', e => {
-      const { left, top, width, height } = el.getBoundingClientRect();
       gsap.to(el, {
-        x: (e.clientX - left - width  / 2) * 0.35,
-        y: (e.clientY - top  - height / 2) * 0.35,
+        x: (e.clientX - rect.left - rect.width  / 2) * 0.35,
+        y: (e.clientY - rect.top  - rect.height / 2) * 0.35,
         duration: 0.3,
         ease: 'power2.out',
       });
     });
-    el.addEventListener('mouseleave', () =>
-      gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' })
-    );
+    el.addEventListener('mouseleave', () => {
+      rect = el.getBoundingClientRect();
+      gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+    });
   });
 }
 

@@ -15,10 +15,10 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
   <!-- Preload hero image — LCP critical path -->
-  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-s-640x360.webp"  media="(max-width: 640px)"                              type="image/webp">
-  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-m-960x540.webp"  media="(min-width: 641px) and (max-width: 960px)"        type="image/webp">
-  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-l-1280x720.webp" media="(min-width: 961px) and (max-width: 1280px)"        type="image/webp">
-  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-xl.webp"         media="(min-width: 1281px)"                               type="image/webp">
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-s-640x360.webp"  media="(max-width: 640px)"                              type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-m-960x540.webp"  media="(min-width: 641px) and (max-width: 960px)"        type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-l-1280x720.webp" media="(min-width: 961px) and (max-width: 1280px)"        type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/img/hero-image-cassa-xl.webp"         media="(min-width: 1281px)"                               type="image/webp" fetchpriority="high">
 
   <!-- Preload GSAP — start download in parallel with CSS -->
   <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" crossorigin>
@@ -34,7 +34,100 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=optional">
   </noscript>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- Critical CSS inline: stili necessari per nav + hero, zero render-blocking -->
+  <style>
+    :root{--bg:#0A0A0C;--bg-2:#121216;--bg-3:#1A1A20;--bg-warm:#1A110F;--bg-rgb:10,10,12;--fg:#F4F1ED;--fg-rgb:244,241,237;--fg-soft:rgba(244,241,237,.7);--fg-dim:rgba(244,241,237,.5);--fg-faint:rgba(244,241,237,.3);--line:rgba(255,255,255,.1);--accent:#FF4A22;--accent-deep:#E03A12;--accent-rgb:255,74,34;--swatch-midnight:#1A1A1A;--swatch-coral:#FF4A22;--swatch-cream:#F4F1ED;--serif:'DM Serif Display',Georgia,'Times New Roman',serif;--sans:'Space Grotesk',ui-sans-serif,system-ui,-apple-system,sans-serif;--container:1240px;--container-narrow:760px;--ease:cubic-bezier(.22,1,.36,1);--ease-snap:cubic-bezier(.34,1.56,.64,1)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    blockquote{margin:0}
+    html{scroll-behavior:smooth;background:var(--bg);color-scheme:dark}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    body{font-family:var(--sans);background:var(--bg);color:var(--fg);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+    ::selection{background:var(--accent);color:#fff}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    img{max-width:100%;display:block}
+    ul{list-style:none}
+    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+    .skip-link{position:fixed;top:-100%;left:16px;z-index:10000;padding:12px 20px;background:var(--fg);color:var(--bg);font-weight:700;font-size:.9rem;border-radius:0 0 8px 8px;transition:top .2s var(--ease)}
+    .skip-link:focus{top:0}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+    :focus:not(:focus-visible){outline:none}
+    .gsap-ready .hero__badge,.gsap-ready [data-reveal-word],.gsap-ready .hero__lede,.gsap-ready .hero__actions{opacity:0}
+    .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px}
+    @media(min-width:700px){.container{padding:0 32px}}
+    .word{display:inline-block}
+    .word--accent{color:var(--accent);font-style:italic}
+    .text-accent{color:var(--accent);font-style:italic}
+    .cursor,.cursor-dot{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;mix-blend-mode:difference;will-change:transform;display:none;top:0;left:0}
+    .cursor{width:36px;height:36px;border:1px solid #fff}
+    .cursor-dot{width:4px;height:4px;background:#fff}
+    .cursor.is-hover{width:64px;height:64px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
+    @media(hover:hover)and(pointer:fine){.cursor,.cursor-dot{display:block}}
+    .progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;box-shadow:0 0 12px rgba(var(--accent-rgb),.6);will-change:width}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 0;transition:padding .4s var(--ease),background .4s var(--ease),backdrop-filter .4s var(--ease),box-shadow .4s var(--ease)}
+    @media(min-width:700px){.nav{padding:24px 0}}
+    .nav.is-scrolled{padding:12px 0;background:rgba(var(--bg-rgb),.72);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);box-shadow:0 1px 0 rgba(255,255,255,.05)}
+    .nav__inner{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    @media(min-width:700px){.nav__inner{padding:0 32px;gap:32px}}
+    .nav__logo{font-family:var(--serif);font-size:1.5rem;letter-spacing:.05em;font-weight:700}
+    @media(min-width:700px){.nav__logo{font-size:1.75rem}}
+    .nav__logo span{color:var(--accent)}
+    .nav__burger{display:flex;flex-direction:column;gap:5px;padding:8px;z-index:51}
+    .nav__burger span{display:block;width:22px;height:2px;background:var(--fg);border-radius:2px;transition:transform .3s var(--ease),opacity .3s var(--ease)}
+    .nav__burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav__burger.is-open span:nth-child(2){opacity:0}
+    .nav__burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    @media(min-width:880px){.nav__burger{display:none}}
+    .nav__links{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(var(--bg-rgb),.95);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease);z-index:50}
+    .nav__links.is-open{opacity:1;pointer-events:all}
+    @media(min-width:880px){.nav__links{position:static;background:none;backdrop-filter:none;flex-direction:row;gap:36px;opacity:1;pointer-events:all}}
+    .nav__link{font-size:16px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-soft);position:relative;transition:color .25s var(--ease)}
+    @media(min-width:880px){.nav__link{font-size:12px}}
+    .nav__link::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--accent);transition:width .4s var(--ease)}
+    .nav__link:hover{color:var(--fg)}
+    .nav__link:hover::after{width:100%}
+    .nav__cta{display:flex;align-items:center;gap:12px}
+    @media(min-width:700px){.nav__cta{gap:18px}}
+    .nav__price{font-weight:600;font-size:.85rem;display:none}
+    @media(min-width:480px){.nav__price{display:inline;font-size:.95rem}}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:transform .3s var(--ease),background .3s var(--ease),box-shadow .4s var(--ease),color .3s var(--ease);position:relative;overflow:hidden;white-space:nowrap}
+    @media(min-width:700px){.btn{padding:16px 32px;font-size:14px}}
+    .btn--primary{background:var(--accent);color:#fff;box-shadow:0 0 0 rgba(var(--accent-rgb),0)}
+    .btn--primary:hover{background:var(--accent-deep);box-shadow:0 8px 40px rgba(var(--accent-rgb),.45),0 0 0 1px rgba(var(--accent-rgb),.3);transform:translateY(-2px)}
+    .btn--white{background:#fff;color:#000}
+    .btn--white:hover{background:#e8e6e2;transform:translateY(-2px)}
+    .btn--small{padding:10px 20px;font-size:11px}
+    @media(min-width:700px){.btn--small{padding:12px 24px;font-size:12px}}
+    .btn--large{padding:18px 36px;font-size:14px}
+    @media(min-width:700px){.btn--large{padding:22px 44px;font-size:16px}}
+    .btn--block{width:100%}
+    .btn::before{content:'';position:absolute;top:0;left:-100%;width:80%;height:100%;background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.25) 50%,transparent 100%);transition:left .7s var(--ease)}
+    .btn:hover::before{left:130%}
+    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+    @media(min-width:700px){.hero{padding:160px 0 100px}}
+    .hero__bg{position:absolute;inset:-10% 0 0 0;z-index:0;will-change:transform}
+    .hero__img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.85;filter:contrast(1.05) saturate(1.05)}
+    .hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(var(--bg-rgb),.5) 0%,rgba(var(--bg-rgb),.6) 50%,var(--bg) 100%),radial-gradient(ellipse 80% 60% at 30% 60%,rgba(var(--accent-rgb),.18) 0%,transparent 60%)}
+    .hero__grain{position:absolute;inset:0;opacity:.06;pointer-events:none;mix-blend-mode:overlay}
+    .hero__content{position:relative;z-index:2;max-width:var(--container)}
+    .hero__badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}
+    @media(min-width:700px){.hero__badge{gap:10px;padding:8px 18px;font-size:11px;margin-bottom:32px}}
+    .hero__badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2s var(--ease) infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+    .hero__title{font-family:var(--serif);font-size:clamp(2.8rem,9vw,8.5rem);line-height:.95;font-weight:400;letter-spacing:-.025em;margin-bottom:28px;max-width:14ch}
+    @media(min-width:700px){.hero__title{margin-bottom:36px}}
+    .hero__lede{font-size:clamp(1rem,1.6vw,1.45rem);color:var(--fg-soft);font-weight:300;line-height:1.55;max-width:38ch;margin-bottom:36px}
+    @media(min-width:700px){.hero__lede{margin-bottom:44px}}
+    .hero__actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    @media(min-width:700px){.hero__actions{gap:28px}}
+    .hero__assurance{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--fg-dim);line-height:1.4}
+    @media(min-width:700px){.hero__assurance{gap:12px;font-size:13px}}
+    .hero__shield{color:var(--accent);flex-shrink:0}
+  </style>
+
+  <!-- Full CSS: non bloccante, carica in parallelo dopo il critical CSS -->
+  <link rel="preload" as="style" href="assets/css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
 </head>
 <body>
 
